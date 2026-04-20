@@ -1,0 +1,104 @@
+# Category Taxonomy for Ars Mechanica
+# Each category has: name, description, and optional parent (for hierarchical organization)
+
+resource-management:
+  name: "Resource Management"
+  description: "Mechanics involving allocation, tracking, and optimization of resources"
+  parent: null
+
+action-selection:
+  name: "Action Selection"
+  description: "How players choose and execute actions during gameplay"
+  parent: null
+
+turn-structure:
+  name: "Turn Structure"
+  description: "How turns, rounds, and gameplay phases are organized"
+  parent: null
+
+player-interaction:
+  name: "Player Interaction"
+  description: "Mechanics that create direct or indirect player engagement"
+  parent: null
+
+randomness:
+  name: "Randomness & Uncertainty"
+  description: "Mechanics introducing chance, probability, and hidden information"
+  parent: null
+
+scoring:
+  name: "Scoring & Victory"
+  description: "How players accumulate points and achieve victory conditions"
+  parent: null
+
+character-development:
+  name: "Character Development"
+  description: "Mechanics for character growth, advancement, and customization"
+  parent: null
+
+spatial:
+  name: "Spatial Mechanics"
+  description: "Mechanics involving position, movement, and area control"
+  parent: null
+
+economic:
+  name: "Economic"
+  description: "Market systems, trading, auctions, and value exchange"
+  parent: null
+
+narrative:
+  name: "Narrative"
+  description: "Mechanics that support storytelling and emergent narrative"
+  parent: null
+
+# Subcategories (examples - expand as needed)
+
+worker-placement:
+  name: "Worker Placement"
+  description: "Players place tokens/meeples to claim actions or resources"
+  parent: action-selection
+
+hand-management:
+  name: "Hand Management"
+  description: "Managing cards in hand for optimal timing and combinations"
+  parent: resource-management
+
+engine-building:
+  name: "Engine Building"
+  description: "Creating combinations that generate increasing benefits"
+  parent: resource-management
+
+dice-manipulation:
+  name: "Dice Manipulation"
+  description: "Modifying, rerolling, or selecting dice results"
+  parent: randomness
+
+area-control:
+  name: "Area Control"
+  description: "Controlling territories or regions for benefits"
+  parent: spatial
+
+set-collection:
+  name: "Set Collection"
+  description: "Gathering specific combinations of items for rewards"
+  parent: scoring
+
+deck-building:
+  name: "Deck Building"
+  description: "Constructing and refining a personal deck during play"
+  parent: character-development
+
+action-programming:
+  name: "Action Programming"
+  description: "Pre-planning sequences of actions before execution"
+  parent: action-selection
+
+hidden-information:
+  name: "Hidden Information"
+  description: "Asymmetric knowledge creating uncertainty"
+  parent: randomness
+
+simultaneous-action:
+  name: "Simultaneous Action Selection"
+  description: "Players choose actions secretly and reveal together"
+  parent: turn-structure

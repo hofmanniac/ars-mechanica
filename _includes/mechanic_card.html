@@ -1,0 +1,36 @@
+{% assign mechanic = include.mechanic %}
+
+<div class="mechanic-card">
+    <h3 class="mechanic-title">
+        <a href="{{ mechanic.url | relative_url }}">{{ mechanic.title }}</a>
+    </h3>
+    
+    {% if mechanic.complexity %}
+    <span class="complexity complexity-{{ mechanic.complexity }}">
+        {{ mechanic.complexity | capitalize }}
+    </span>
+    {% endif %}
+    
+    <div class="mechanic-excerpt">
+        {{ mechanic.content | strip_html | truncatewords: 30 }}
+    </div>
+    
+    {% if mechanic.categories and mechanic.categories.size > 0 %}
+    <div class="card-categories">
+        {% for category in mechanic.categories limit:3 %}
+            {% assign cat_data = site.data.categories[category] %}
+            <span class="mini-category-tag">{{ cat_data.name | default: category }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    {% if mechanic.tags and mechanic.tags.size > 0 %}
+    <div class="card-tags">
+        {% for tag in mechanic.tags limit:4 %}
+            <span class="mini-tag">{{ tag }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <a href="{{ mechanic.url | relative_url }}" class="read-more">Read more →</a>
+</div>

@@ -1,0 +1,26 @@
+<header class="site-header">
+    <div class="container">
+        <div class="header-top">
+            <div class="site-title">
+                <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <p class="tagline">{{ site.description }}</p>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search mechanics..." aria-label="Search mechanics">
+                <div id="search-results" class="search-results"></div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="site-nav">
+        <div class="container">
+            {% for item in site.navigation %}
+            <a href="{{ item.url | relative_url }}" 
+               {% if page.url == item.url %}class="active"{% endif %}>
+                {{ item.title }}
+            </a>
+            {% endfor %}
+        </div>
+    </nav>
+</header>

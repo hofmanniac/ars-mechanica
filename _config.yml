@@ -1,0 +1,60 @@
+# Site Settings
+title: Ars Mechanica
+description: >-
+  A comprehensive encyclopedia of game mechanics for tabletop RPGs, board games,
+  and card games. Mix and match mechanics to create your own games.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+author: Ars Mechanica
+email: your-email@example.com
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+# Collections
+collections:
+  mechanics:
+    output: true
+    permalink: /mechanics/:name/
+    sort_by: title
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "mechanics"
+    values:
+      layout: "mechanic"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Site navigation
+navigation:
+  - title: Home
+    url: /
+  - title: All Mechanics
+    url: /mechanics/
+  - title: Categories
+    url: /categories/
+  - title: About
+    url: /about/

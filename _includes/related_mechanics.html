@@ -1,0 +1,57 @@
+{% if page.related_mechanics and page.related_mechanics.size > 0 %}
+<section class="related-mechanics">
+    <h2>Related Mechanics</h2>
+    <div class="related-grid">
+        {% for related_slug in page.related_mechanics %}
+            {% assign related = site.mechanics | where: "slug", related_slug | first %}
+            {% if related %}
+                <div class="related-card">
+                    <h4><a href="{{ related.url | relative_url }}">{{ related.title }}</a></h4>
+                    <p>{{ related.content | strip_html | truncatewords: 20 }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% comment %}
+Auto-suggest related mechanics based on shared tags
+Only show if there are no manually curated related mechanics
+{% endcomment %}
+
+{% if page.related_mechanics.size == 0 and page.tags.size > 0 %}
+<section class="suggested-mechanics">
+    <h2>You Might Also Like</h2>
+    
+    {% assign suggestions = "" | split: "" %}
+    
+    {% for mechanic in site.mechanics %}
+        {% if mechanic.url != page.url and mechanic.tags.size > 0 %}
+            {% assign common_tags = 0 %}
+            {% for tag in mechanic.tags %}
+                {% if page.tags contains tag %}
+                    {% assign common_tags = common_tags | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if common_tags >= 2 %}
+                {% assign suggestions = suggestions | push: mechanic %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    
+    {% if suggestions.size > 0 %}
+    <div class="related-grid">
+        {% for suggestion in suggestions limit:3 %}
+            <div class="related-card">
+                <h4><a href="{{ suggestion.url | relative_url }}">{{ suggestion.title }}</a></h4>
+                <p>{{ suggestion.content | strip_html | truncatewords: 20 }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Explore the <a href="{{ '/mechanics/' | relative_url }}">complete catalog</a> to discover more mechanics.</p>
+    {% endif %}
+</section>
+{% endif %}

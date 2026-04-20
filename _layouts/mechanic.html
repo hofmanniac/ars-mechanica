@@ -1,0 +1,172 @@
+---
+layout: default
+---
+
+<div class="mechanic-layout">
+    <article class="mechanic-main">
+        <header class="mechanic-header">
+            <h1>{{ page.title }}</h1>
+        </header>
+        
+        <div class="mechanic-content">
+            {{ content }}
+        </div>
+        
+        {% if page.examples and page.examples.size > 0 %}
+        <section class="examples">
+            <h2>Examples in Games</h2>
+            <ul class="examples-list">
+            {% for example in page.examples %}
+                <li>
+                    <strong>{{ example.name }}</strong>
+                    {% if example.description %} — {{ example.description }}{% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+        
+        {% if page.last_updated %}
+        <footer class="mechanic-footer">
+            <p class="last-updated">Last updated: {{ page.last_updated | date: "%B %d, %Y" }}</p>
+        </footer>
+        {% endif %}
+    </article>
+    
+    <aside class="mechanic-sidebar">
+        <section class="sidebar-section metadata">
+            <h3>Metadata</h3>
+            
+            {% if page.aliases and page.aliases.size > 0 %}
+            <div class="metadata-item">
+                <strong>Also known as:</strong>
+                <p>{{ page.aliases | join: ", " }}</p>
+            </div>
+            {% endif %}
+            
+            {% if page.complexity %}
+            <div class="metadata-item">
+                <strong>Complexity:</strong>
+                <p><span class="complexity complexity-{{ page.complexity }}">{{ page.complexity | capitalize }}</span></p>
+            </div>
+            {% endif %}
+            
+            {% if page.game_types and page.game_types.size > 0 %}
+            <div class="metadata-item">
+                <strong>Game Types:</strong>
+                <p>{{ page.game_types | join: ", " | replace: "-", " " | capitalize }}</p>
+            </div>
+            {% endif %}
+            
+            {% if page.categories and page.categories.size > 0 %}
+            <div class="metadata-item">
+                <strong>Categories:</strong>
+                <div class="sidebar-categories">
+                    {% for category in page.categories %}
+                        {% assign cat_data = site.data.categories[category] %}
+                        <a href="{{ '/categories/' | append: category | relative_url }}" class="category-tag-small">
+                            {{ cat_data.name | default: category }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if page.tags and page.tags.size > 0 %}
+            <div class="metadata-item">
+                <strong>Tags:</strong>
+                <div class="sidebar-tags">
+                    {% for tag in page.tags %}
+                        <span class="tag-small">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </section>
+        
+        {% if page.combinations and page.combinations.size > 0 %}
+        <section class="sidebar-section combinations">
+            <h3>Mechanic Combinations</h3>
+            
+            {% for combo in page.combinations %}
+            <div class="combination-card">
+                <h4>{{ combo.creates }}</h4>
+                <p class="combo-mechanics">
+                    {% for mech_slug in combo.mechanics %}
+                        {% assign related_mech = site.mechanics | where: "slug", mech_slug | first %}
+                        {% if related_mech %}
+                            <a href="{{ related_mech.url | relative_url }}">{{ related_mech.title }}</a>{% unless forloop.last %} + {% endunless %}
+                        {% else %}
+                            {{ mech_slug }}{% unless forloop.last %} + {% endunless %}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p class="combo-description">{{ combo.description }}</p>
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+        
+        {% if page.related_mechanics and page.related_mechanics.size > 0 %}
+        <section class="sidebar-section related-mechanics">
+            <h3>Related Mechanics</h3>
+            <ul class="related-list">
+                {% for related_slug in page.related_mechanics %}
+                    {% assign related = site.mechanics | where: "slug", related_slug | first %}
+                    {% if related %}
+                        <li>
+                            <a href="{{ related.url | relative_url }}">{{ related.title }}</a>
+                            {% if related.complexity %}
+                            <span class="complexity-mini complexity-{{ related.complexity }}">{{ related.complexity }}</span>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+        
+        {% comment %}
+        Auto-suggest related mechanics based on shared tags
+        Only show if there are no manually curated related mechanics
+        {% endcomment %}
+        
+        {% if page.related_mechanics.size == 0 and page.tags.size > 0 %}
+        <section class="sidebar-section suggested-mechanics">
+            <h3>You Might Also Like</h3>
+            
+            {% assign suggestions = "" | split: "" %}
+            
+            {% for mechanic in site.mechanics %}
+                {% if mechanic.url != page.url and mechanic.tags.size > 0 %}
+                    {% assign common_tags = 0 %}
+                    {% for tag in mechanic.tags %}
+                        {% if page.tags contains tag %}
+                            {% assign common_tags = common_tags | plus: 1 %}
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if common_tags >= 2 %}
+                        {% assign suggestions = suggestions | push: mechanic %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if suggestions.size > 0 %}
+            <ul class="related-list">
+                {% for suggestion in suggestions limit:5 %}
+                    <li>
+                        <a href="{{ suggestion.url | relative_url }}">{{ suggestion.title }}</a>
+                        {% if suggestion.complexity %}
+                        <span class="complexity-mini complexity-{{ suggestion.complexity }}">{{ suggestion.complexity }}</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="sidebar-text">Explore the <a href="{{ '/mechanics/' | relative_url }}">complete catalog</a> to discover more mechanics.</p>
+            {% endif %}
+        </section>
+        {% endif %}
+    </aside>
+</div>
