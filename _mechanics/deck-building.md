@@ -36,11 +36,8 @@ examples:
   - name: "Legendary (Marvel)"
     description: "Cooperative deck-building where players build hero decks to defeat villains and schemes"
 last_updated: 2026-04-19
+overview: "Deck Building is a mechanic where players start with identical small decks of basic cards and gradually customize their decks by acquiring new cards during gameplay. Unlike constructed deck games (like Magic: The Gathering) where players build decks before playing, deck-building happens as a core part of the game itself."
 ---
-
-## Overview
-
-Deck Building is a mechanic where players start with identical small decks of basic cards and gradually customize their decks by acquiring new cards during gameplay. Unlike constructed deck games (like Magic: The Gathering) where players build decks before playing, deck-building happens as a core part of the game itself.
 
 ## How It Works
 

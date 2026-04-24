@@ -37,11 +37,8 @@ examples:
   - name: "Scythe"
     description: "Asymmetric area control with economic engine-building and multiple paths to controlling territories"
 last_updated: 2026-04-19
+overview: "Area Control is a spatial mechanic where players compete to dominate geographical regions on a board. Players typically place tokens, units, or influence markers in various areas, with control often determined by having the most pieces, highest total strength, or exclusive presence in a region."
 ---
-
-## Overview
-
-Area Control is a spatial mechanic where players compete to dominate geographical regions on a board. Players typically place tokens, units, or influence markers in various areas, with control often determined by having the most pieces, highest total strength, or exclusive presence in a region.
 
 ## Core Mechanisms
 

@@ -35,11 +35,8 @@ examples:
   - name: "Stone Age"
     description: "Multiple workers can be placed on some spaces; dice rolls determine resource yield"
 last_updated: 2026-04-19
+overview: "Worker Placement is an action selection mechanic where players take turns placing game pieces (workers, meeples, agents) on action spaces on a central board. Once a space is occupied, other players typically cannot use it that round, creating competition for desirable actions."
 ---
-
-## Overview
-
-Worker Placement is an action selection mechanic where players take turns placing game pieces (workers, meeples, agents) on action spaces on a central board. Once a space is occupied, other players typically cannot use it that round, creating competition for desirable actions.
 
 ## How It Works
 

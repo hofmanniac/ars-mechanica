@@ -37,11 +37,8 @@ examples:
   - name: "Eldritch Horror"
     description: "Reroll dice, add bonus dice, or modify results through character abilities and items"
 last_updated: 2026-04-19
+overview: "Dice Manipulation encompasses mechanics that allow players to modify, reroll, select, or otherwise influence dice results. This reduces pure randomness and adds strategic decision-making to dice-based games, giving players agency over probabilistic outcomes."
 ---
-
-## Overview
-
-Dice Manipulation encompasses mechanics that allow players to modify, reroll, select, or otherwise influence dice results. This reduces pure randomness and adds strategic decision-making to dice-based games, giving players agency over probabilistic outcomes.
 
 ## Core Mechanisms
 

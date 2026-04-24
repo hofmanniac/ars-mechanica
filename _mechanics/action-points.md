@@ -32,11 +32,8 @@ examples:
   - name: "Twilight Imperium"
     description: "Players have a limited number of command tokens to activate systems and perform strategic actions"
 last_updated: 2026-04-19
+overview: "Action Points (AP) is a resource management mechanic where players receive a fixed or variable number of points each turn that they can spend on various actions. This creates strategic decisions about how to best allocate limited resources across multiple possible actions."
 ---
-
-## Overview
-
-Action Points (AP) is a resource management mechanic where players receive a fixed or variable number of points each turn that they can spend on various actions. This creates strategic decisions about how to best allocate limited resources across multiple possible actions.
 
 ## How It Works
 

@@ -125,6 +125,13 @@ a:hover {
 
 .site-nav .container {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.nav-items {
+    display: flex;
     gap: 0;
 }
 
@@ -151,13 +158,13 @@ a:hover {
 /* ===== Search ===== */
 .search-container {
     position: relative;
-    max-width: 400px;
+    max-width: 300px;
     flex-shrink: 0;
 }
 
 #search-input {
     width: 100%;
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--border-radius);
     font-size: 1rem;
@@ -260,6 +267,7 @@ main {
     display: flex;
     gap: var(--spacing-xxl);
     align-items: flex-start;
+    margin-top: var(--spacing-lg);
 }
 
 .mechanic-main {
@@ -274,11 +282,28 @@ main {
 
 .mechanic-header {
     margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 3px solid var(--border-color);
 }
 
 .mechanic-header h1 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
+}
+
+.mechanic-overview {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-top: var(--spacing-lg);
+}
+
+.mechanic-overview p {
+    margin-bottom: var(--spacing-md);
+}
+
+.mechanic-overview p:last-child {
+    margin-bottom: 0;
 }
 
 .aliases {
@@ -351,6 +376,36 @@ main {
 .mechanic-content {
     margin: 0 0 var(--spacing-xl) 0;
     line-height: 1.8;
+}
+
+.mechanic-content h2 {
+    color: var(--primary-color);
+    margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: rgba(37, 99, 235, 0.05);
+    border-radius: var(--border-radius);
+}
+
+.mechanic-content h2:first-child {
+    margin-top: 0;
+}
+
+.mechanic-content h3 {
+    color: var(--text-color);
+    margin-top: var(--spacing-xl);
+    padding-left: var(--spacing-sm);
+    border-left: 4px solid var(--primary-color);
+}
+
+.mechanic-content ul,
+.mechanic-content ol {
+    padding-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.mechanic-content li {
+    margin-bottom: var(--spacing-sm);
 }
 
 /* ===== Examples Section ===== */
@@ -681,12 +736,19 @@ main {
         gap: var(--spacing-md);
     }
     
-    .search-container {
-        max-width: 100%;
+    .site-nav .container {
+        flex-direction: column;
+        gap: var(--spacing-md);
     }
     
-    .site-nav .container {
+    .nav-items {
         flex-wrap: wrap;
+        width: 100%;
+    }
+    
+    .search-container {
+        max-width: 100%;
+        width: 100%;
     }
     
     .site-nav a {
