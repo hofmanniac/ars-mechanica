@@ -114,6 +114,15 @@
     color: white;
 }
 
+/* Dark Theme Card Gradients */
+[data-theme="dark"] .combination-showcase-card {
+    background: var(--background-alt);
+}
+
+[data-theme="dark"] .category-preview-card {
+    background: linear-gradient(135deg, var(--background-alt) 0%, #1a2332 100%);
+}
+
 /* ===== Reset & Base Styles ===== */
 * {
     margin: 0;
@@ -573,7 +582,7 @@ body.mechanic-page main {
 }
 
 .combination-showcase-card {
-    background: linear-gradient(135deg, var(--background-alt) 0%, white 100%);
+    background: var(--card-background);
     border: 2px solid var(--border-color);
     border-left: 4px solid var(--primary-color);
     border-radius: var(--border-radius);
