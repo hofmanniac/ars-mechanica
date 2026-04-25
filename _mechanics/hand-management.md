@@ -2,6 +2,8 @@
 title: "Hand Management"
 slug: hand-management
 icon: "fa-hand-holding"
+dimensions:
+  - action-selection
 aliases: ["Card Management", "Hand Optimization"]
 categories:
   - card-game

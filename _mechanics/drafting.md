@@ -2,6 +2,8 @@
 title: "Drafting"
 slug: drafting
 icon: "fa-hand-pointer"
+dimensions:
+  - action-selection
 aliases: ["Card Drafting", "Draft Selection", "Pick and Pass"]
 categories:
   - action-selection

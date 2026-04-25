@@ -3,7 +3,7 @@ title: Ars Mechanica
 description: >-
   A comprehensive encyclopedia of game mechanics for tabletop RPGs, board games,
   and card games. Mix and match mechanics to create your own games.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/ars-mechanica" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 author: Ars Mechanica
 email: your-email@example.com
@@ -18,6 +18,10 @@ collections:
     output: true
     permalink: /mechanics/:name/
     sort_by: title
+  dimensions:
+    output: true
+    permalink: /dimensions/:name/
+    sort_by: title
 
 # Defaults
 defaults:
@@ -26,6 +30,11 @@ defaults:
       type: "mechanics"
     values:
       layout: "mechanic"
+  - scope:
+      path: ""
+      type: "dimensions"
+    values:
+      layout: "dimension"
   - scope:
       path: ""
       type: "pages"
@@ -56,5 +65,7 @@ navigation:
     url: /mechanics/
   - title: Categories
     url: /categories/
+  - title: Dimensions
+    url: /dimensions/
   - title: About
     url: /about/

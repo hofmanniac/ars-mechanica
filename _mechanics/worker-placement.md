@@ -2,6 +2,9 @@
 title: "Worker Placement"
 slug: worker-placement
 icon: "fa-user-gear"
+dimensions:
+  - action-selection
+  - player-interaction
 aliases: ["Action Drafting", "Meeple Placement"]
 categories:
   - action-selection

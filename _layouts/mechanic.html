@@ -113,6 +113,22 @@ layout: default
             </div>
             {% endif %}
             
+            {% if page.dimensions and page.dimensions.size > 0 %}
+            <div class="metadata-item">
+                <strong>Dimensions:</strong>
+                <div class="sidebar-dimensions">
+                    {% for dimension_slug in page.dimensions %}
+                        {% assign dimension = site.dimensions | where: "slug", dimension_slug | first %}
+                        {% if dimension %}
+                        <a href="{{ dimension.url | relative_url }}" class="dimension-tag-small">
+                            <i class="fas {{ dimension.icon }}"></i> {{ dimension.title }}
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
             {% if page.game_types and page.game_types.size > 0 %}
             <div class="metadata-item">
                 <strong>Game Types:</strong>

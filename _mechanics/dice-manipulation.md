@@ -2,6 +2,8 @@
 title: "Dice Manipulation"
 slug: dice-manipulation
 icon: "fa-dice"
+dimensions:
+  - uncertainty
 aliases: ["Dice Modification", "Dice Mitigation", "Dice Control"]
 categories:
   - randomness

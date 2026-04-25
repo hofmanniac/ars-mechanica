@@ -2,6 +2,9 @@
 title: "Deck Building"
 slug: deck-building
 icon: "fa-layer-group"
+dimensions:
+  - progression
+  - resource-economy
 aliases: ["Deck Construction", "Pool Building"]
 categories:
   - character-development

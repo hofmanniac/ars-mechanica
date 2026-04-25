@@ -2,6 +2,8 @@
 title: "Set Collection"
 slug: set-collection
 icon: "fa-shapes"
+dimensions:
+  - objective-scoring
 aliases: ["Set Matching", "Collection Objectives", "Set Completion"]
 categories:
   - scoring

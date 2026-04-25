@@ -206,11 +206,32 @@
      * Initialize the TOC
      */
     function init() {
-        const contentElement = document.querySelector(CONFIG.contentSelector);
-        const tocContainer = document.querySelector(CONFIG.tocContainerSelector);
+        // Try to detect page type and use appropriate selectors
+        let contentSelector, tocSelector, titleSelector, titleAttribute;
+        
+        // Check if it's a dimension page
+        if (document.querySelector('.dimension-content')) {
+            contentSelector = '.dimension-content';
+            tocSelector = '#dimension-toc-container';
+            titleSelector = '.dimension-header h1';
+            titleAttribute = null; // Get text directly from h1
+        } 
+        // Check if it's a mechanic page
+        else if (document.querySelector('.mechanic-content')) {
+            contentSelector = '.mechanic-content';
+            tocSelector = '#toc-container';
+            titleSelector = '.mechanic-header';
+            titleAttribute = 'data-mechanic-title';
+        }
+        else {
+            return; // Not on a supported page type
+        }
+        
+        const contentElement = document.querySelector(contentSelector);
+        const tocContainer = document.querySelector(tocSelector);
         
         if (!contentElement || !tocContainer) {
-            return; // Not on a mechanic page
+            return;
         }
         
         // Add IDs to headings
@@ -221,13 +242,25 @@
             return;
         }
         
-        // Get mechanic title from header
-        const mechanicTitle = document.querySelector('.mechanic-header')?.getAttribute('data-mechanic-title') || '';
+        // Get page title
+        let pageTitle = '';
+        const titleElement = document.querySelector(titleSelector);
+        if (titleElement) {
+            if (titleAttribute) {
+                pageTitle = titleElement.getAttribute(titleAttribute) || '';
+            } else {
+                // For dimension pages, extract text without icon
+                pageTitle = titleElement.textContent.replace(/^\s*[\u{1F300}-\u{1F9FF}]?\s*/u, '').trim();
+            }
+        }
         
-        // Generate and insert TOC
+        // Generate and insert TOC (with appropriate heading levels)
+        const tocTitleTag = contentSelector === '.dimension-content' ? 'h3' : 'h2';
+        const tocHeadingTag = contentSelector === '.dimension-content' ? 'h4' : 'h3';
+        
         tocContainer.innerHTML = `
-            <h2 class="toc-title">${mechanicTitle}</h2>
-            <h3 class="toc-heading">On This Page</h3>
+            <${tocTitleTag} class="toc-title">${pageTitle}</${tocTitleTag}>
+            <${tocHeadingTag} class="toc-heading">On This Page</${tocHeadingTag}>
             ${generateTocHTML()}
         `;
         

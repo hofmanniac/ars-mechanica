@@ -2,7 +2,7 @@
 
 **A comprehensive encyclopedia of game mechanics for tabletop games, board games, RPGs, and card games.**
 
-🎲 **[Visit the Site](https://yourusername.github.io/ars-mechanica/)** (replace with your GitHub Pages URL)
+🎲 **[Visit the Site](https://hofmanniac.github.io/ars-mechanica/)**
 
 ## About
 
@@ -55,7 +55,7 @@ This is a Jekyll site hosted on GitHub Pages. To run it locally:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/yourusername/ars-mechanica.git
+git clone https://github.com/hofmanniac/ars-mechanica.git
 cd ars-mechanica
 ```
 

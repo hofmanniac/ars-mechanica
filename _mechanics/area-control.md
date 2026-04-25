@@ -2,6 +2,9 @@
 title: "Area Control"
 slug: area-control
 icon: "fa-chess-board"
+dimensions:
+  - spatial
+  - player-interaction
 aliases: ["Territory Control", "Area Majority", "Area Influence"]
 categories:
   - spatial

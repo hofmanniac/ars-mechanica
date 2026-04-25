@@ -2,6 +2,8 @@
 title: "Tile Placement"
 slug: tile-placement
 icon: "fa-puzzle-piece"
+dimensions:
+  - spatial
 aliases: ["Tile Laying", "Tile Building"]
 categories:
   - map-building

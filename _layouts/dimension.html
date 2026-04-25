@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<div class="dimension-layout">
+    <header class="dimension-header">
+        <h1>{% if page.icon %}<i class="fas {{ page.icon }}"></i> {% endif %}{{ page.title }}</h1>
+        <p class="dimension-description">{{ page.description }}</p>
+    </header>
+
+    <!-- Left: Table of Contents -->
+    <aside class="dimension-toc-sidebar">
+        <div class="toc-sticky-wrapper">
+            <section id="dimension-toc-container" class="sidebar-section toc-section">
+                <h3 class="toc-title">{{ page.title }}</h3>
+                <h4 class="toc-heading">On This Page</h4>
+                <!-- TOC will be injected here by JavaScript -->
+            </section>
+        </div>
+    </aside>
+
+    <article class="dimension-main">
+        <div class="dimension-content">
+            {{ content }}
+        </div>
+    </article>
+
+    <aside class="dimension-sidebar">
+        <section class="sidebar-section dimension-mechanics-sidebar">
+            <h3>Mechanics in This Dimension</h3>
+            
+            {% assign dimension_mechanics = site.mechanics | where_exp: "item", "item.dimensions contains page.slug" | sort: "title" %}
+            {% if dimension_mechanics.size > 0 %}
+            <p class="sidebar-intro">{{ dimension_mechanics.size }} mechanic{% if dimension_mechanics.size != 1 %}s{% endif %} use this dimension:</p>
+            <ul class="mechanic-links-list">
+                {% for mechanic in dimension_mechanics %}
+                <li>
+                    <a href="{{ mechanic.url | relative_url }}">
+                        {% if mechanic.icon %}<i class="fas {{ mechanic.icon }}"></i> {% endif %}{{ mechanic.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="no-mechanics"><em>No mechanics tagged yet.</em></p>
+            {% endif %}
+        </section>
+
+        <section class="sidebar-section dimension-navigation-sidebar">
+            <h3>Other Dimensions</h3>
+            {% assign other_dimensions = site.dimensions | where_exp: "item", "item.slug != page.slug" | sort: "order" %}
+            <ul class="dimension-links-list">
+                {% for dim in other_dimensions %}
+                <li>
+                    <a href="{{ dim.url | relative_url }}">
+                        <i class="fas {{ dim.icon }}"></i> {{ dim.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </aside>
+</div>
