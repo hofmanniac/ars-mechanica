@@ -24,16 +24,6 @@ related_mechanics:
   - drafting
   - set-collection
   - action-selection
-combinations:
-  - mechanics: [hand-management, deck-building]
-    creates: "Hand-Building Strategy"
-    description: "Optimize both what goes into your deck and how you play cards from hand for maximum efficiency"
-  - mechanics: [hand-management, worker-placement]
-    creates: "Card-Driven Worker Placement"
-    description: "Cards in hand determine available actions or provide resources for worker placement"
-  - mechanics: [hand-management, set-collection]
-    creates: "Combo Collection"
-    description: "Hold cards to complete sets while balancing immediate plays versus future payoffs"
 examples:
   - name: "Ticket to Ride"
     description: "Collect colored train cards to claim routes; balance drawing cards versus playing sets to claim routes"

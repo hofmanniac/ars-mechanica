@@ -23,13 +23,6 @@ related_mechanics:
   - hand-management
   - engine-building
   - action-selection
-combinations:
-  - mechanics: [deck-building, worker-placement]
-    creates: "Deck-Building Worker Placement"
-    description: "Cards in your deck become workers - draw and play cards to place workers, combining deck optimization with placement competition"
-  - mechanics: [deck-building, dice-manipulation]
-    creates: "Dice Crafting"
-    description: "Instead of cards, build pools of custom dice, purchasing upgrades that replace die faces"
 examples:
   - name: "Dominion"
     description: "The definitive deck-building game - buy cards from a shared market to add to your deck, building combos and synergies"

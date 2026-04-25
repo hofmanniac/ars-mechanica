@@ -22,13 +22,6 @@ game_types:
 related_mechanics:
   - worker-placement
   - action-points
-combinations:
-  - mechanics: [area-control, deck-building]
-    creates: "Card-Driven Area Control"
-    description: "Use cards from a customized deck to place units, move forces, or claim territories - deck composition determines strategic options"
-  - mechanics: [area-control, action-points]
-    creates: "Tactical Area Control"
-    description: "Spend action points to move units and claim territories - creates granular decisions about resource allocation"
 examples:
   - name: "Risk"
     description: "Classic territory control through dice combat - hold continents for bonuses"

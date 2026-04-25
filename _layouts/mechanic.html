@@ -30,10 +30,11 @@ layout: default
         <!-- Tab Navigation -->
         <div class="mechanic-tabs">
             <button class="tab-button active" data-tab="content">Mechanic Details</button>
-            {% if page.combinations and page.combinations.size > 0 %}
+            {% assign related_combinations = site.combinations | where_exp: "combo", "combo.mechanics contains page.slug" %}
+            {% if related_combinations.size > 0 %}
             <button class="tab-button" data-tab="combinations">
                 Mechanic Combinations
-                <span class="tab-badge">{{ page.combinations.size }}</span>
+                <span class="tab-badge">{{ related_combinations.size }}</span>
             </button>
             {% endif %}
         </div>
@@ -60,20 +61,20 @@ layout: default
         </div>
         
         <!-- Tab Content: Combinations -->
-        {% if page.combinations and page.combinations.size > 0 %}
+        {% if related_combinations.size > 0 %}
         <div class="tab-content" data-tab-content="combinations">
             <div class="combinations-showcase">
                 <div class="combinations-grid">
-                    {% for combo in page.combinations %}
-                    <div class="combination-showcase-card">
-                        <h3>{{ combo.creates }}</h3>
+                    {% for combo in related_combinations %}
+                    <a href="{{ combo.url | relative_url }}" class="combination-showcase-card clickable">
+                        <h3>{{ combo.title }}</h3>
                         <div class="combo-mechanics-large">
                             {% for mech_slug in combo.mechanics %}
                                 {% assign related_mech = site.mechanics | where: "slug", mech_slug | first %}
                                 {% if related_mech %}
-                                    <a href="{{ related_mech.url | relative_url }}" class="mechanic-pill">{{ related_mech.title }}</a>
+                                    <span class="mechanic-pill-static">{{ related_mech.title }}</span>
                                 {% else %}
-                                    <span class="mechanic-pill">{{ mech_slug }}</span>
+                                    <span class="mechanic-pill-static">{{ mech_slug }}</span>
                                 {% endif %}
                                 {% unless forloop.last %}
                                     <span class="combo-plus">+</span>
@@ -81,7 +82,7 @@ layout: default
                             {% endfor %}
                         </div>
                         <p class="combo-description-large">{{ combo.description }}</p>
-                    </div>
+                    </a>
                     {% endfor %}
                 </div>
             </div>

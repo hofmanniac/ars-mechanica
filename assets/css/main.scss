@@ -123,6 +123,33 @@
     background: linear-gradient(135deg, var(--background-alt) 0%, #1a2332 100%);
 }
 
+/* Dark Theme Combination Specific Elements */
+[data-theme="dark"] .mechanic-mini-card {
+    background-color: var(--background);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .mechanic-card-link:hover .mechanic-mini-card {
+    border-left-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .participating-mechanics {
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .mechanic-pill-static {
+    background-color: var(--primary-color);
+    color: var(--background);
+}
+
+/* Dark Theme Footer */
+[data-theme="dark"] .site-footer {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
 /* ===== Reset & Base Styles ===== */
 * {
     margin: 0;
@@ -1516,6 +1543,197 @@ body.mechanic-page main {
     font-size: 0.9rem;
 }
 
+/* ===== Combination Pages ===== */
+
+/* Individual Combination Page */
+.combination-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 300px;
+    grid-template-rows: auto 1fr;
+    gap: var(--spacing-xl);
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.combination-header {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid var(--border-color);
+}
+
+.combination-header h1 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.combination-mechanics-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.combination-mechanics-header .mechanic-pill {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.combination-mechanics-header .combo-plus {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.combination-overview {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-top: var(--spacing-lg);
+}
+
+.combination-toc-sidebar {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.combination-main {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+}
+
+.combination-content h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: var(--spacing-sm);
+    display: inline-block;
+    margin-top: var(--spacing-xl);
+}
+
+.combination-content h3 {
+    color: var(--primary-color);
+    margin-top: var(--spacing-lg);
+}
+
+.combination-meta-sidebar {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
+/* Participating Mechanics in Sidebar */
+.participating-mechanics {
+    background-color: var(--background-alt);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+}
+
+.participating-mechanics h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.participating-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.mechanic-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.mechanic-mini-card {
+    background-color: var(--background);
+    border: 2px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.mechanic-card-link:hover .mechanic-mini-card {
+    border-left-color: var(--accent-color);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mechanic-mini-card h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.mechanic-mini-card .complexity-mini {
+    margin-top: var(--spacing-xs);
+}
+
+.mechanic-mini-card.unavailable {
+    opacity: 0.6;
+    border-left-color: var(--text-light);
+}
+
+.unavailable-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Combinations Index Page */
+.combinations-page {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.combinations-count {
+    color: var(--text-light);
+    margin: var(--spacing-md) 0 var(--spacing-xl) 0;
+}
+
+.combinations-count p {
+    margin: 0;
+}
+
+/* Make combination cards clickable */
+.combination-showcase-card.clickable {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.combination-showcase-card.clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-left-color: var(--accent-color);
+}
+
+/* Static mechanic pills (non-clickable) */
+.mechanic-pill-static {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 /* Responsive: Stack on smaller screens */
 @media (max-width: 1200px) {
     .dimension-layout {
@@ -1538,6 +1756,30 @@ body.mechanic-page main {
     }
     
     .dimension-sidebar {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    
+    .combination-layout {
+        grid-template-columns: 1fr 300px;
+        grid-template-rows: auto auto 1fr;
+    }
+    
+    .combination-header {
+        grid-column: 1 / -1;
+    }
+    
+    .combination-toc-sidebar {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+    
+    .combination-main {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .combination-meta-sidebar {
         grid-column: 2;
         grid-row: 3;
     }
@@ -1564,6 +1806,30 @@ body.mechanic-page main {
     }
     
     .dimension-sidebar {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    
+    .combination-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+    
+    .combination-header {
+        grid-column: 1;
+    }
+    
+    .combination-toc-sidebar {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .combination-main {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .combination-meta-sidebar {
         grid-column: 1;
         grid-row: 4;
     }

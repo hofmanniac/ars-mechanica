@@ -21,16 +21,6 @@ related_mechanics:
   - hand-management
   - set-collection
   - engine-building
-combinations:
-  - mechanics: [drafting, set-collection]
-    creates: "Draft to Collect"
-    description: "Players draft cards to build sets, combining selection strategy with collection goals like in Sushi Go or 7 Wonders"
-  - mechanics: [drafting, engine-building]
-    creates: "Draft and Build"
-    description: "Draft cards that build an engine of abilities and resources, with each pick enabling future strategies"
-  - mechanics: [drafting, worker-placement]
-    creates: "Draft Workers"
-    description: "Draft worker cards or tiles that provide placement abilities, combining selection with placement strategy"
 examples:
   - name: "7 Wonders"
     description: "Classic card drafting where players simultaneously pick one card from their hand and pass the rest to their neighbor"

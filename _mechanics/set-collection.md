@@ -21,16 +21,6 @@ related_mechanics:
   - hand-management
   - drafting
   - trading
-combinations:
-  - mechanics: [set-collection, hand-management]
-    creates: "Rummy-Style Games"
-    description: "Players collect cards into their hands and reveal completed sets for points, like in Rummy or Gin"
-  - mechanics: [set-collection, drafting]
-    creates: "Draft and Collect"
-    description: "Players draft cards or tiles with the goal of assembling valuable sets, adding strategic denial"
-  - mechanics: [set-collection, trading]
-    creates: "Trading and Collection"
-    description: "Players negotiate trades to complete their sets while preventing opponents from completing theirs"
 examples:
   - name: "Ticket to Ride"
     description: "Collect sets of colored train cards to claim routes between cities"

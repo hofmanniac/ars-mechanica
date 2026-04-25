@@ -215,7 +215,14 @@
             tocSelector = '#dimension-toc-container';
             titleSelector = '.dimension-header h1';
             titleAttribute = null; // Get text directly from h1
-        } 
+        }
+        // Check if it's a combination page
+        else if (document.querySelector('.combination-content')) {
+            contentSelector = '.combination-content';
+            tocSelector = '#toc-container';
+            titleSelector = '.combination-header h1';
+            titleAttribute = null; // Get text directly from h1
+        }
         // Check if it's a mechanic page
         else if (document.querySelector('.mechanic-content')) {
             contentSelector = '.mechanic-content';

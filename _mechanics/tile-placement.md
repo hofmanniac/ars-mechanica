@@ -24,16 +24,6 @@ related_mechanics:
   - area-control
   - network-building
   - route-building
-combinations:
-  - mechanics: [tile-placement, worker-placement]
-    creates: "Tile Placement with Worker Actions"
-    description: "Place tiles to build the map, then place workers on the tiles for actions or area control"
-  - mechanics: [tile-placement, area-control]
-    creates: "Territory Building"
-    description: "Place tiles to expand and claim territory, scoring for connected regions or majority control"
-  - mechanics: [tile-placement, deck-building]
-    creates: "Tile Drafting"
-    description: "Draw tiles from a personal deck or bag, combining tile optimization with spatial placement"
 examples:
   - name: "Carcassonne"
     description: "Draw and place tiles to build roads, cities, and monasteries, then place meeples to score completed features"

@@ -21,13 +21,6 @@ game_types:
 related_mechanics:
   - worker-placement
   - action-programming
-combinations:
-  - mechanics: [action-points, hand-management]
-    creates: "Action Programming"
-    description: "Combine action points with card play - players spend AP to play cards from hand, creating tension between card quality and action quantity"
-  - mechanics: [action-points, dice-manipulation]
-    creates: "Dice Action Selection"
-    description: "Use dice results to determine available action points, adding randomness to action economy"
 examples:
   - name: "Pandemic"
     description: "Each player has 4 actions per turn to move, treat diseases, share knowledge, or build research stations"

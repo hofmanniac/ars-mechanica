@@ -22,13 +22,6 @@ related_mechanics:
   - action-points
   - engine-building
   - resource-management
-combinations:
-  - mechanics: [worker-placement, deck-building]
-    creates: "Deck-Building Worker Placement"
-    description: "Workers are represented by cards in a deck; play cards from hand to place workers, combining deck optimization with placement strategy"
-  - mechanics: [worker-placement, dice-manipulation]
-    creates: "Dice Placement"
-    description: "Use dice as workers, where the die face determines available actions or their strength"
 examples:
   - name: "Agricola"
     description: "Place family members on action spaces to gather resources, build fences, and grow your farm"

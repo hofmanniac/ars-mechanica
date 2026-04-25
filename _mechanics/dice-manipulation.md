@@ -21,13 +21,6 @@ game_types:
 related_mechanics:
   - action-points
   - worker-placement
-combinations:
-  - mechanics: [dice-manipulation, worker-placement]
-    creates: "Dice Placement"
-    description: "Roll dice and use their results as workers to place on action spaces - die value determines action strength or available options"
-  - mechanics: [dice-manipulation, deck-building]
-    creates: "Dice Crafting"
-    description: "Build custom dice or dice pools through card acquisition, combining deck optimization with roll manipulation"
 examples:
   - name: "Sagrada"
     description: "Draft dice and place them following color and number restrictions to create stained glass window patterns"

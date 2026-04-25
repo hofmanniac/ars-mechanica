@@ -22,6 +22,10 @@ collections:
     output: true
     permalink: /dimensions/:name/
     sort_by: title
+  combinations:
+    output: true
+    permalink: /combinations/:name/
+    sort_by: title
 
 # Defaults
 defaults:
@@ -35,6 +39,11 @@ defaults:
       type: "dimensions"
     values:
       layout: "dimension"
+  - scope:
+      path: ""
+      type: "combinations"
+    values:
+      layout: "combination"
   - scope:
       path: ""
       type: "pages"
@@ -63,6 +72,8 @@ navigation:
     url: /
   - title: All Mechanics
     url: /mechanics/
+  - title: Combinations
+    url: /combinations/
   - title: Categories
     url: /categories/
   - title: Dimensions

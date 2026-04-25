@@ -1,0 +1,150 @@
+---
+layout: default
+---
+
+<div class="combination-layout">
+    <!-- Header: Title and Overview -->
+    <header class="combination-header">
+        <div class="page-type-label">Mechanic Combination</div>
+        <h1>{{ page.title }}</h1>
+        
+        {% if page.mechanics and page.mechanics.size > 0 %}
+        <div class="combination-mechanics-header">
+            {% for mech_slug in page.mechanics %}
+                {% assign mechanic = site.mechanics | where: "slug", mech_slug | first %}
+                {% if mechanic %}
+                <a href="{{ mechanic.url | relative_url }}" class="mechanic-pill">
+                    {% if mechanic.icon %}<i class="fas {{ mechanic.icon }}"></i> {% endif %}{{ mechanic.title }}
+                </a>
+                {% else %}
+                <span class="mechanic-pill">{{ mech_slug }}</span>
+                {% endif %}
+                {% unless forloop.last %}
+                    <span class="combo-plus">+</span>
+                {% endunless %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% if page.description %}
+        <div class="combination-overview">
+            {{ page.description | markdownify }}
+        </div>
+        {% endif %}
+    </header>
+    
+    <!-- Left: Table of Contents -->
+    <aside class="combination-toc-sidebar">
+        <div class="toc-sticky-wrapper">
+            <section id="toc-container" class="sidebar-section toc-section">
+                <h2 class="toc-title">{{ page.title }}</h2>
+                <h3 class="toc-heading">On This Page</h3>
+                <!-- TOC will be injected here by JavaScript -->
+            </section>
+        </div>
+    </aside>
+    
+    <!-- Center: Main Content -->
+    <article class="combination-main">
+        <div class="combination-content">
+            {{ content }}
+            
+            {% if page.design_notes and page.design_notes != "" %}
+            <section id="design-notes" class="design-notes">
+                <h2>Design Notes</h2>
+                {{ page.design_notes | markdownify }}
+            </section>
+            {% endif %}
+            
+            {% if page.game_examples and page.game_examples.size > 0 %}
+            <section id="examples" class="examples">
+                <h2>Examples in Games</h2>
+                <ul class="examples-list">
+                {% for example in page.game_examples %}
+                    <li>
+                        <strong>{{ example.name }}</strong>
+                        {% if example.description %} — {{ example.description }}{% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+        </div>
+        
+        {% if page.last_updated %}
+        <footer class="combination-footer">
+            <p class="last-updated">Last updated: {{ page.last_updated | date: "%B %d, %Y" }}</p>
+        </footer>
+        {% endif %}
+    </article>
+    
+    <!-- Right Sidebar: Participating Mechanics, Related Dimensions -->
+    <aside class="combination-meta-sidebar">
+        {% if page.mechanics and page.mechanics.size > 0 %}
+        <section class="sidebar-section participating-mechanics">
+            <h3>Participating Mechanics</h3>
+            <div class="participating-list">
+                {% for mech_slug in page.mechanics %}
+                    {% assign mechanic = site.mechanics | where: "slug", mech_slug | first %}
+                    {% if mechanic %}
+                    <a href="{{ mechanic.url | relative_url }}" class="mechanic-card-link">
+                        <div class="mechanic-mini-card">
+                            <h4>{% if mechanic.icon %}<i class="fas {{ mechanic.icon }}"></i> {% endif %}{{ mechanic.title }}</h4>
+                            {% if mechanic.complexity %}
+                            <span class="complexity-mini complexity-{{ mechanic.complexity }}">{{ mechanic.complexity }}</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                    {% else %}
+                    <div class="mechanic-mini-card unavailable">
+                        <h4>{{ mech_slug }}</h4>
+                        <span class="unavailable-label">Coming Soon</span>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+        
+        {% if page.related_dimensions and page.related_dimensions.size > 0 %}
+        <section class="sidebar-section related-dimensions">
+            <h3>Related Dimensions</h3>
+            <div class="dimension-links">
+                {% for dimension_slug in page.related_dimensions %}
+                    {% assign dimension = site.dimensions | where: "slug", dimension_slug | first %}
+                    {% if dimension %}
+                    <a href="{{ dimension.url | relative_url }}" class="dimension-tag-small">
+                        <i class="fas {{ dimension.icon }}"></i> {{ dimension.title }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+        
+        <section class="sidebar-section related-combinations">
+            <h3>Related Combinations</h3>
+            <ul class="related-list">
+                {% assign current_mechanics = page.mechanics %}
+                {% for combo in site.combinations %}
+                    {% if combo.url != page.url %}
+                        {% assign shared = false %}
+                        {% for mech in combo.mechanics %}
+                            {% if current_mechanics contains mech %}
+                                {% assign shared = true %}
+                                {% break %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if shared %}
+                        <li>
+                            <a href="{{ combo.url | relative_url }}">{{ combo.title }}</a>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </aside>
+</div>
+
+<script src="{{ '/assets/js/tabs.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
