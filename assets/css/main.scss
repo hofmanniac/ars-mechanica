@@ -5,6 +5,7 @@
 
 /* ===== Variables ===== */
 :root {
+    /* Light Theme Colors */
     --primary-color: #2c5aa0;
     --secondary-color: #5a8fd6;
     --accent-color: #d97706;
@@ -13,6 +14,7 @@
     --background: #ffffff;
     --background-alt: #f9fafb;
     --border-color: #e5e7eb;
+    --card-background: #ffffff;
     --success: #059669;
     --warning: #d97706;
     --error: #dc2626;
@@ -32,6 +34,84 @@
     
     --border-radius: 0.375rem;
     --transition: all 0.2s ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --primary-color: #5a8fd6;
+    --secondary-color: #7ba7e0;
+    --accent-color: #f59e0b;
+    --text-color: #e5e7eb;
+    --text-light: #9ca3af;
+    --background: #111827;
+    --background-alt: #1f2937;
+    --border-color: #374151;
+    --card-background: #1f2937;
+}
+
+/* Dark Theme Header Override */
+[data-theme="dark"] .site-header {
+    background-color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .site-nav {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Dark Theme Category Pills */
+[data-theme="dark"] .mini-category-tag {
+    background-color: #374151;
+    color: #d1d5db;
+}
+
+[data-theme="dark"] .mini-tag {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    color: #9ca3af;
+}
+
+/* Dark Theme Complexity Badges */
+[data-theme="dark"] .complexity {
+    background-color: transparent;
+    border: 2px solid;
+}
+
+[data-theme="dark"] .complexity-low {
+    border-color: var(--complexity-low);
+    color: var(--complexity-low);
+}
+
+[data-theme="dark"] .complexity-medium {
+    border-color: #f59e0b;
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .complexity-high {
+    border-color: var(--complexity-high);
+    color: #fca5a5;
+}
+
+/* Dark Theme Dimension Tags */
+[data-theme="dark"] .dimension-tag-small {
+    background-color: var(--background);
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .dimension-tag-small:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .dimension-tag-small i {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .dimension-tag-small:hover i {
+    color: white;
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -162,6 +242,38 @@ a:hover {
     text-decoration: none;
 }
 
+/* ===== Navigation Controls ===== */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius);
+    color: white;
+    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1.1rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
 /* ===== Search ===== */
 .search-container {
     position: relative;
@@ -182,7 +294,7 @@ a:hover {
 #search-input:focus {
     outline: none;
     border-color: white;
-    background-color: white;
+    background-color: var(--card-background);
 }
 
 .search-results {
@@ -190,7 +302,7 @@ a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background: white;
+    background: var(--card-background);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: var(--spacing-sm);
@@ -296,8 +408,18 @@ body.mechanic-page main {
     border-bottom: 3px solid var(--border-color);
 }
 
+.page-type-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
 .mechanic-header h1 {
     color: var(--primary-color);
+    margin-top: 0;
     margin-bottom: var(--spacing-md);
 }
 
@@ -737,7 +859,7 @@ body.mechanic-page main {
 .tag-small {
     display: inline-block;
     padding: var(--spacing-xs) var(--spacing-sm);
-    background-color: white;
+    background-color: var(--card-background);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 0.8rem;
@@ -745,7 +867,7 @@ body.mechanic-page main {
 }
 
 .sidebar-section.combinations .combination-card {
-    background-color: white;
+    background-color: var(--card-background);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
@@ -789,6 +911,27 @@ body.mechanic-page main {
 .complexity-mini.complexity-low { background-color: var(--complexity-low); }
 .complexity-mini.complexity-medium { background-color: var(--complexity-medium); }
 .complexity-mini.complexity-high { background-color: var(--complexity-high); }
+
+/* Dark Theme Complexity Mini Badges (Related Mechanics) */
+[data-theme="dark"] .complexity-mini {
+    background-color: transparent;
+    border: 1px solid;
+}
+
+[data-theme="dark"] .complexity-mini.complexity-low {
+    border-color: var(--complexity-low);
+    color: var(--complexity-low);
+}
+
+[data-theme="dark"] .complexity-mini.complexity-medium {
+    border-color: #f59e0b;
+    color: #fbbf24;
+}
+
+[data-theme="dark"] .complexity-mini.complexity-high {
+    border-color: var(--complexity-high);
+    color: #fca5a5;
+}
 
 .sidebar-text {
     font-size: 0.9rem;
@@ -1129,9 +1272,9 @@ body.mechanic-page main {
 
 /* ===== Dimensions Pages ===== */
 .dimensions-page {
-    max-width: var(--max-width);
+    max-width: var(--max-width-wide);
     margin: 0 auto;
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: 0;
 }
 
 .dimensions-list {
@@ -1233,12 +1376,16 @@ body.mechanic-page main {
 }
 
 .dimension-header {
-    grid-column: 1 / -1;
+    grid-column: 2;
     grid-row: 1;
+    margin-bottom: 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid var(--border-color);
 }
 
 .dimension-header h1 {
     color: var(--primary-color);
+    margin-top: 0;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1256,7 +1403,7 @@ body.mechanic-page main {
 
 .dimension-toc-sidebar {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1 / span 2;
 }
 
 .dimension-main {
@@ -1285,7 +1432,7 @@ body.mechanic-page main {
 
 .dimension-sidebar {
     grid-column: 3;
-    grid-row: 2;
+    grid-row: 1 / span 2;
 }
 
 .dimension-mechanics-sidebar,

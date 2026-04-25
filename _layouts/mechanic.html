@@ -5,6 +5,7 @@ layout: default
 <div class="mechanic-layout">
     <!-- Header: Title and Overview -->
     <header class="mechanic-header" data-mechanic-title="{{ page.title }}">
+        <div class="page-type-label">Game Mechanic</div>
         <h1>{% if page.icon %}<i class="fas {{ page.icon }}"></i> {% endif %}{{ page.title }}</h1>
         {% if page.overview %}
         <div class="mechanic-overview">
