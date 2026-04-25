@@ -1,6 +1,7 @@
 ---
 title: "Worker Placement"
 slug: worker-placement
+icon: "fa-user-gear"
 aliases: ["Action Drafting", "Meeple Placement"]
 categories:
   - action-selection

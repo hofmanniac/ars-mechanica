@@ -1,6 +1,7 @@
 ---
 title: "Deck Building"
 slug: deck-building
+icon: "fa-layer-group"
 aliases: ["Deck Construction", "Pool Building"]
 categories:
   - character-development

@@ -2,17 +2,13 @@
 
 <div class="mechanic-card">
     <h3 class="mechanic-title">
-        <a href="{{ mechanic.url | relative_url }}">{{ mechanic.title }}</a>
+        <a href="{{ mechanic.url | relative_url }}">
+            {% if mechanic.icon %}<i class="fas {{ mechanic.icon }}"></i> {% endif %}{{ mechanic.title }}
+        </a>
     </h3>
     
-    {% if mechanic.complexity %}
-    <span class="complexity complexity-{{ mechanic.complexity }}">
-        {{ mechanic.complexity | capitalize }}
-    </span>
-    {% endif %}
-    
     <div class="mechanic-excerpt">
-        {{ mechanic.content | strip_html | truncatewords: 30 }}
+        {{ mechanic.content | strip_html | truncatewords: 20 }}
     </div>
     
     {% if mechanic.categories and mechanic.categories.size > 0 %}

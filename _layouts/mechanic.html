@@ -3,32 +3,88 @@ layout: default
 ---
 
 <div class="mechanic-layout">
+    <!-- Header: Title and Overview -->
+    <header class="mechanic-header" data-mechanic-title="{{ page.title }}">
+        <h1>{% if page.icon %}<i class="fas {{ page.icon }}"></i> {% endif %}{{ page.title }}</h1>
+        {% if page.overview %}
+        <div class="mechanic-overview">
+            {{ page.overview | markdownify }}
+        </div>
+        {% endif %}
+    </header>
+    
+    <!-- Left: Table of Contents -->
+    <aside class="mechanic-toc-sidebar">
+        <div class="toc-sticky-wrapper">
+            <section id="toc-container" class="sidebar-section toc-section">
+                <h2 class="toc-title">{{ page.title }}</h2>
+                <h3 class="toc-heading">On This Page</h3>
+                <!-- TOC will be injected here by JavaScript -->
+            </section>
+        </div>
+    </aside>
+    
+    <!-- Center: Main Content with Tabs -->
     <article class="mechanic-main">
-        <header class="mechanic-header">
-            <h1>{{ page.title }}</h1>
-            {% if page.overview %}
-            <div class="mechanic-overview">
-                {{ page.overview | markdownify }}
-            </div>
+        <!-- Tab Navigation -->
+        <div class="mechanic-tabs">
+            <button class="tab-button active" data-tab="content">Mechanic Details</button>
+            {% if page.combinations and page.combinations.size > 0 %}
+            <button class="tab-button" data-tab="combinations">
+                Mechanic Combinations
+                <span class="tab-badge">{{ page.combinations.size }}</span>
+            </button>
             {% endif %}
-        </header>
-        
-        <div class="mechanic-content">
-            {{ content }}
         </div>
         
-        {% if page.examples and page.examples.size > 0 %}
-        <section class="examples">
-            <h2>Examples in Games</h2>
-            <ul class="examples-list">
-            {% for example in page.examples %}
-                <li>
-                    <strong>{{ example.name }}</strong>
-                    {% if example.description %} — {{ example.description }}{% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-        </section>
+        <!-- Tab Content: Main Mechanic Content -->
+        <div class="tab-content active" data-tab-content="content">
+            <div class="mechanic-content">
+                {{ content }}
+            </div>
+            
+            {% if page.examples and page.examples.size > 0 %}
+            <section class="examples">
+                <h2>Examples in Games</h2>
+                <ul class="examples-list">
+                {% for example in page.examples %}
+                    <li>
+                        <strong>{{ example.name }}</strong>
+                        {% if example.description %} — {{ example.description }}{% endif %}
+                    </li>
+                {% endfor %}
+                </ul>
+            </section>
+            {% endif %}
+        </div>
+        
+        <!-- Tab Content: Combinations -->
+        {% if page.combinations and page.combinations.size > 0 %}
+        <div class="tab-content" data-tab-content="combinations">
+            <div class="combinations-showcase">
+                <div class="combinations-grid">
+                    {% for combo in page.combinations %}
+                    <div class="combination-showcase-card">
+                        <h3>{{ combo.creates }}</h3>
+                        <div class="combo-mechanics-large">
+                            {% for mech_slug in combo.mechanics %}
+                                {% assign related_mech = site.mechanics | where: "slug", mech_slug | first %}
+                                {% if related_mech %}
+                                    <a href="{{ related_mech.url | relative_url }}" class="mechanic-pill">{{ related_mech.title }}</a>
+                                {% else %}
+                                    <span class="mechanic-pill">{{ mech_slug }}</span>
+                                {% endif %}
+                                {% unless forloop.last %}
+                                    <span class="combo-plus">+</span>
+                                {% endunless %}
+                            {% endfor %}
+                        </div>
+                        <p class="combo-description-large">{{ combo.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         {% endif %}
         
         {% if page.last_updated %}
@@ -38,7 +94,8 @@ layout: default
         {% endif %}
     </article>
     
-    <aside class="mechanic-sidebar">
+    <!-- Right Sidebar: Metadata, Related -->
+    <aside class="mechanic-meta-sidebar">
         <section class="sidebar-section metadata">
             <h3>Metadata</h3>
             
@@ -88,29 +145,6 @@ layout: default
             </div>
             {% endif %}
         </section>
-        
-        {% if page.combinations and page.combinations.size > 0 %}
-        <section class="sidebar-section combinations">
-            <h3>Mechanic Combinations</h3>
-            
-            {% for combo in page.combinations %}
-            <div class="combination-card">
-                <h4>{{ combo.creates }}</h4>
-                <p class="combo-mechanics">
-                    {% for mech_slug in combo.mechanics %}
-                        {% assign related_mech = site.mechanics | where: "slug", mech_slug | first %}
-                        {% if related_mech %}
-                            <a href="{{ related_mech.url | relative_url }}">{{ related_mech.title }}</a>{% unless forloop.last %} + {% endunless %}
-                        {% else %}
-                            {{ mech_slug }}{% unless forloop.last %} + {% endunless %}
-                        {% endif %}
-                    {% endfor %}
-                </p>
-                <p class="combo-description">{{ combo.description }}</p>
-            </div>
-            {% endfor %}
-        </section>
-        {% endif %}
         
         {% if page.related_mechanics and page.related_mechanics.size > 0 %}
         <section class="sidebar-section related-mechanics">

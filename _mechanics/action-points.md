@@ -1,6 +1,7 @@
 ---
 title: "Action Points"
 slug: action-points
+icon: "fa-coins"
 aliases: ["AP System", "Action Economy", "Action Allowance"]
 categories:
   - resource-management

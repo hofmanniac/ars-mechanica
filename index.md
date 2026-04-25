@@ -4,12 +4,8 @@ title: Home
 ---
 
 <div class="home-page">
-    <section class="hero">
+    <section class="welcome-banner">
         <h1>Welcome to Ars Mechanica</h1>
-        <p class="lead">
-            A comprehensive encyclopedia of game mechanics for tabletop RPGs, board games, 
-            and card games. Discover, explore, and mix mechanics to create amazing games.
-        </p>
     </section>
 
     <section class="featured-mechanics">

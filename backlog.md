@@ -19,6 +19,8 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Worker Placement
 - Tile Placement
 - Hand Management
+- Set Collection
+- Drafting
 
 ### Resource & Economy Mechanics ⏳
 - Resource Management
@@ -33,12 +35,9 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Victory Points as a Resource
 
 ### Hand & Card Management ⏳
-- Hand Management
-- Drafting (Card Drafting)
 - Open Drafting
 - Multi-Use Cards
 - Trick-Taking
-- Set Collection
 - Melding and Splaying
 - Move Through Deck
 

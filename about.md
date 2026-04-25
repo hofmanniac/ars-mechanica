@@ -4,9 +4,10 @@ title: About Ars Mechanica
 permalink: /about/
 ---
 
-# About Ars Mechanica
-
-**Ars Mechanica** (Latin: "The Art of Mechanics") is a comprehensive encyclopedia of game mechanics for tabletop games, board games, RPGs, and card games. Our mission is to catalog, explain, and explore the building blocks that make games engaging, strategic, and fun.
+<header class="page-header">
+    <h1>About Ars Mechanica</h1>
+    <p><strong>Ars Mechanica</strong> (Latin: "The Art of Mechanics") is a comprehensive encyclopedia of game mechanics for tabletop games, board games, RPGs, and card games. Our mission is to catalog, explain, and explore the building blocks that make games engaging, strategic, and fun.</p>
+</header>
 
 ## What You'll Find Here
 
