@@ -2,7 +2,12 @@
     <div class="container">
         <div class="header-top">
             <div class="site-title">
-                <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+                <h1>
+                    <a href="{{ '/' | relative_url }}">
+                        <i class="fas fa-cogs"></i>
+                        <span class="title-text">{{ site.title }}</span>
+                    </a>
+                </h1>
                 <p class="tagline">{{ site.description }}</p>
             </div>
         </div>

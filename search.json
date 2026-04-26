@@ -10,7 +10,7 @@ layout: null
       "tags": {{ mechanic.tags | jsonify }},
       "complexity": {{ mechanic.complexity | jsonify }},
       "content": {{ mechanic.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }},
-      "url": {{ mechanic.url | jsonify }},
+      "url": {{ mechanic.url | relative_url | jsonify }},
       "aliases": {{ mechanic.aliases | jsonify }}
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}

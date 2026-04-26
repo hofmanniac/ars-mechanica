@@ -1,3 +1,6 @@
+---
+layout: null
+---
 // Simple search implementation for Ars Mechanica
 // Uses fetch to load search.json and filters results client-side
 
@@ -9,7 +12,7 @@
     let searchResults = document.getElementById('search-results');
     
     // Load search data
-    fetch('/search.json')
+    fetch('{{ "/search.json" | relative_url }}')
         .then(response => response.json())
         .then(data => {
             searchData = data;

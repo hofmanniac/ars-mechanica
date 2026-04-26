@@ -14,23 +14,29 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 ### Already Documented ✅
 - Action Points
 - Area Control
+- Auction/Bidding
+- Cooperative Play
 - Deck Building
 - Dice Manipulation
-- Worker Placement
-- Tile Placement
-- Hand Management
-- Set Collection
 - Drafting
+- Engine Building
+- Grid Movement
+- Hand Management
+- Hidden Roles
+- Push Your Luck
+- Resource Management
+- Set Collection
+- Tile Placement
+- Variable Player Powers
+- Worker Placement
 
 ### Resource & Economy Mechanics ⏳
-- Resource Management
 - Trading
 - Commodity Speculation
 - Loans
 - Income
 - Contracts
 - Stock Holding
-- Auction/Bidding
 - Betting/Wagering
 - Victory Points as a Resource
 
@@ -42,7 +48,6 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Move Through Deck
 
 ### Building & Development ⏳
-- Engine Building
 - Deck, Bag, and Pool Building
 - Tech Trees/Tech Tracks
 - Pattern Building
@@ -53,7 +58,6 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Grid Coverage
 
 ### Movement & Positioning ⏳
-- Grid Movement
 - Hex-and-Counter
 - Hexagon Grid
 - Square Grid
@@ -91,7 +95,6 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 ### Dice & Randomness ⏳
 - Dice Rolling
 - Die Icon Resolution
-- Push Your Luck
 - Re-rolling and Locking
 - Chit-Pull System
 - Cube Tower
@@ -99,7 +102,6 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Tile Bag
 
 ### Social & Deduction ⏳
-- Hidden Roles
 - Traitor Mechanic
 - Bluffing
 - Deduction
@@ -134,7 +136,6 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Campaign/Legacy
 - Scenario/Mission/Campaign Game
 - Solo/Solitaire Game
-- Cooperative Play
 - Semi-Cooperative Game
 - Score-and-Reset Game
 - End Game Bonuses
@@ -144,7 +145,6 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 - Narrative Choice/Paragraph
 
 ### Player Powers & Abilities ⏳
-- Variable Player Powers
 - Once-Per-Game Abilities
 - Lose a Turn
 
@@ -186,26 +186,17 @@ This is a backlog of game mechanics to document for the Ars Mechanica catalog.
 ## Priority Suggestions
 
 ### High Priority (Popular/Foundational)
-1. Set Collection
-4. Drafting
-5. Engine Building
-6. Resource Management
-7. Push Your Luck
-8. Auction/Bidding
-9. Grid Movement
-10. Variable Player Powers
+- All completed! 🎉
 
 ### Medium Priority (Common)
-1. Hidden Roles
-2. Cooperative Play
-3. Modular Board
-4. Pattern Building
-5. Route Building
-6. Network Building
-7. Trading
-8. Negotiation
-9. Bluffing
-10. Deduction
+1. Modular Board
+2. Pattern Building
+3. Route Building
+4. Network Building
+5. Trading
+6. Negotiation
+7. Bluffing
+8. Deduction
 
 ### Lower Priority (Specialized/Less Common)
 - Everything else in the backlog
